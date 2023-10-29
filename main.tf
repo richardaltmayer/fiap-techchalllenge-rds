@@ -1,3 +1,13 @@
+terraform {
+  cloud {
+    organization = "fiap_techchallenge"
+
+    workspaces {
+      name = "fiap-techchallenge"
+    }
+  }
+}
+
 resource "aws_db_instance" "fiap-techchallenge-rds" {
   engine = "mysql"
   engine_version = "8.0.33"
