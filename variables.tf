@@ -1,4 +1,4 @@
-variable "db_user" {
+variable "db_username" {
   type      = string
   sensitive = false
 }
