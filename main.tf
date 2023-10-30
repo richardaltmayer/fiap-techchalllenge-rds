@@ -36,7 +36,7 @@ resource "aws_db_instance" "fiap-techchallenge-rds" {
   instance_class = "db.t3.micro"
   storage_type = "gp2"
   identifier = "fiap-techchallenge-db"
-  username = var.db_username
+  username = secrets.db_username
   password = "passw0rd!132"
   publicly_accessible = true
   skip_final_snapshot = true
