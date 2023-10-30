@@ -21,8 +21,8 @@ terraform {
 }
 
 provider "aws" {
-  access_key = "AKIAY3MORP6XO7UTCY2Q"
-  secret_key = "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"
+  # access_key = "AKIAY3MORP6XO7UTCY2Q"
+  # secret_key = "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"
   region     = "us-east-1"
 }
 
@@ -33,7 +33,7 @@ resource "aws_db_instance" "fiap-techchallenge-rds" {
   instance_class = "db.t3.micro"
   storage_type = "gp2"
   identifier = "fiap-techchallenge-db"
-  username = secrets.db_username
+  username = "admin"
   password = "passw0rd!132"
   publicly_accessible = true
   skip_final_snapshot = true
