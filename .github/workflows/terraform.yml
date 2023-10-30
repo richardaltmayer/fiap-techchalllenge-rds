@@ -34,7 +34,7 @@ jobs:
         id: validate
         run: |
           export DB_USERNAME=$DB_USERNAME
-          terraform validate -no-color --db_username=$DB_USERNAME
+          terraform validate -no-color -db_username=$DB_USERNAME
         env:
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
 
@@ -43,7 +43,7 @@ jobs:
         #if: github.event_name == 'pull_request'
         run: |
           export DB_USERNAME=$DB_USERNAME
-          terraform plan -no-color -input=false --db_username=$DB_USERNAME
+          terraform plan -no-color -input=false -db_username=$DB_USERNAME
         env:
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
         continue-on-error: true
@@ -86,6 +86,6 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: |
           export DB_USERNAME=$DB_USERNAME
-          terraform apply -auto-approve -input=false --db_username=$DB_USERNAME
+          terraform apply -auto-approve -input=false -db_username=$DB_USERNAME
         env:
           DB_USERNAME: ${{ secrets.DB_USERNAME }}
