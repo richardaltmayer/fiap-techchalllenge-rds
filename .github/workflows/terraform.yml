@@ -28,20 +28,16 @@ jobs:
 
       - name: Terraform Init
         id: init
-        run: terraform init
+        run: terraform init -var="db_username=${{ secrets.DB_USERNAME }}"
       
       - name: Terraform Validate
         id: validate
-        env:
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        run: terraform validate -no-color -var db_username=$DB_USERNAME
+        run: terraform validate -no-color -var="db_username=${{ secrets.DB_USERNAME }}"
 
       - name: Terraform Plan
         id: plan
         #if: github.event_name == 'pull_request'
-        env:
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        run: terraform plan -no-color -input=false -var db_username=$DB_USERNAME
+        run: terraform plan -no-color -input=false -var="db_username=${{ secrets.DB_USERNAME }}"
         continue-on-error: true
 
       #- name: Update Pull Request
@@ -80,6 +76,4 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        env:
-          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        run: terraform apply -auto-approve -input=false -var db_username=$DB_USERNAME
+        run: terraform apply -auto-approve -input=false -var="db_username=${{ secrets.DB_USERNAME }}"
