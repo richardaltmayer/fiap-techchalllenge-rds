@@ -1,5 +1,4 @@
-variable "db_username" {
+variable "db_user" {
   type      = string
   sensitive = false
-  default   = ${{ secrets.DB_USERNAME }}
 }
