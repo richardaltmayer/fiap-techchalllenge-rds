@@ -26,11 +26,6 @@ provider "aws" {
   region     = "us-east-1"
 }
 
-variable "db_username" {
-  type      = string
-  sensitive = true
-}
-
 resource "aws_db_instance" "fiap-techchallenge-rds" {
   engine = "mysql"
   engine_version = "8.0.33"
