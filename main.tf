@@ -24,6 +24,11 @@ provider "aws" {
   region     = "us-east-1"
 }
 
+resource "github_actions_secret" "db_username" {
+  repository       = "techchallenge"
+  secret_name      = "DB_USERNAME"
+}
+
 resource "aws_db_instance" "fiap-techchallenge-rds" {
   engine = "mysql"
   engine_version = "8.0.33"
@@ -31,7 +36,7 @@ resource "aws_db_instance" "fiap-techchallenge-rds" {
   instance_class = "db.t3.micro"
   storage_type = "gp2"
   identifier = "fiap-techchallenge-db"
-  username = secrets.DB_USERNAME
+  username = var.db_username
   password = "passw0rd!132"
   publicly_accessible = true
   skip_final_snapshot = true
