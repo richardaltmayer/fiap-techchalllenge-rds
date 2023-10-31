@@ -32,7 +32,7 @@ resource "aws_db_instance" "fiap-techchallenge-rds" {
   storage_type = "gp2"
   identifier = "fiap-techchallenge-db"
   username = var.db_username
-  password = "passw0rd!132"
+  password = var.db_password
   publicly_accessible = true
   skip_final_snapshot = true
 
