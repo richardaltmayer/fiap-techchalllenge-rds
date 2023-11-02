@@ -5,15 +5,15 @@ Projeto responsável por gerar a infraestutura de banco de dados gerenciável na
 ## Modelo de dados
 ![modelo-er](https://github.com/richardaltmayer/fiap-techchalllenge-rds/assets/10313123/fef1d7ac-bbe3-41d0-a426-83ccefde9717)
 
-- customer: relaciona os clientes cadastrados.
-- product: relaciona os produtos comercializados.
-- order: armazena os dados dos pedidos realizados pelos clientes.
-- order_item: armazena a relação de itens vinculados em cada pedido.
-- item: representa as opções disponíveis no menu do usuário. Um item pode conter:
+- `customer`: relaciona os clientes cadastrados.
+- `product`: relaciona os produtos comercializados.
+- `order`: armazena os dados dos pedidos realizados pelos clientes.
+- `order_item`: armazena a relação de itens vinculados em cada pedido.
+- `item`: representa as opções disponíveis no menu do usuário. Um item pode conter:
   - 1 produto: item simples.
   - Mais de um produto: combo de produtos.
-- item_product: vincula a relação do item com o(s) produto(s).
-- image: indica a representação da imagem de cada produto ou item.
+- `item_product`: vincula a relação do item com o(s) produto(s).
+- `image`: indica a representação da imagem de cada produto ou item.
 
 ## Justificativa
 
