@@ -27,7 +27,7 @@ provider "aws" {
 resource "aws_db_instance" "fiap-techchallenge-rds" {
   engine = "mysql"
   engine_version = "8.0.33"
-  db_name = "fiap-techchallenge"
+  db_name = "fiaptechchallenge"
   allocated_storage = 20
   instance_class = "db.t3.micro"
   storage_type = "gp2"
