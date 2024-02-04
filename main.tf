@@ -74,6 +74,25 @@ resource "aws_db_instance" "fiap-techchallenge-rds" {
   }
 }
 
+resource "aws_db_instance" "fiap-techchallenge-producao" {
+  engine = "mysql"
+  engine_version = "8.0.33"
+  db_name = "producao"
+  allocated_storage = 20
+  instance_class = "db.t3.micro"
+  storage_type = "gp2"
+  identifier = "fiap-techchallenge-db-producao"
+  username = var.db_username
+  password = var.db_password
+  publicly_accessible = true
+  skip_final_snapshot = true
+  db_subnet_group_name = aws_db_subnet_group.rds_subnet.name
+  vpc_security_group_ids = [aws_security_group.rds_security_group.id]
+
+  tags = {
+    Name = "fiap-techchallenge"
+  }
+}
 
 resource "aws_db_subnet_group" "rds_subnet" {
   name       = "rds-subnet"
